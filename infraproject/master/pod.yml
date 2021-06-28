@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  creationTimestamp: null
+  namespace: infraproject
+  name: infra 
+  labels:
+    app: infra
+spec:
+  replicas: 1         
+  selector:
+    matchLabels:
+      app: infra 
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: infra 
+    spec:
+      containers:
+      - name: infra 
+        image: rafacanelon/infra_final_project:latest
+        ports:
+          - containerPort: 8080
+        resources:
+          requests:
+            cpu: 30m
+status: {}
+
